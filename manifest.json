@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "AlphaSort",
+  "version": "2024.3.10.0",
+  "description": "A super simple extension for sorting all your bookmarks alphabetically in ascending or descending order.",
+  "icons": {
+    "48": "alpha-sort.png"
+  },
+  "action": {
+    "default_title": "AlphaSort",
+    "default_popup": "alpha-sort.html"
+  },
+  "permissions": ["bookmarks"]
+}

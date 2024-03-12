@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="alpha-sort.css">
+  </head>
+  <body>
+    <table id="titleTable">
+      <tr>
+        <td>
+          AlphaSort
+        </td>
+      </tr>
+    </table>
+    <table id="sortDirectionTable">
+      <tr>
+        <td colspan="2">
+          <div id="sortDirectionLabel">Sort <span style="border-bottom: 1px dotted black">Direction:</span>
+            <span id="sortDirectionTooltip">According to title</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" id="sortAscending" name="sortDirection" value="ascending" checked>
+        </td>
+        <td>
+          <label for="sortAscending">Ascending</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" id="sortDescending" name="sortDirection" value="descending">
+        </td>
+        <td>
+          <label for="sortDescending">Descending</label>
+        </td>
+      </tr>
+    </table>
+    <div id="tableSpacing"></div>
+    <table id="organizeFirstTable">
+      <tr>
+        <td colspan="2">
+          <div id="organizeFirstLabel">Organize <span style="border-bottom: 1px dotted black">First:</span>
+            <span id="organizeFirstTooltip">Folders or files first OR ALL equally</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" id="folders" name="organizeFirst" value="folders" checked>
+        </td>
+        <td>
+          <label for="folders">Folders</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" id="files" name="organizeFirst" value="files">
+        </td>
+        <td>
+          <label for="files">Files</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" id="all" name="organizeFirst" value="all">
+        </td>
+        <td>
+          <label for="all">All</label>
+        </td>
+      </tr>
+    </table>
+    <table id="sortButtonTable">
+      <tr>
+        <td>
+          <input type="button" id="sortButton" name="sortButton" value="Sort">
+        </td>
+      </tr>
+    </table>
+    <script src="alpha-sort.js"></script>
+  </body>
+</html>

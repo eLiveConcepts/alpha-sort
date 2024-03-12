@@ -1,0 +1,95 @@
+#titleTable {
+  margin: auto;
+  padding-top: 0px;
+  padding-bottom: 8px;
+  font-family: cursive;
+  font-size: large;
+  font-weight: bold;
+}
+
+#sortDirectionTable {
+  border-radius: 10px;
+  outline-style: solid;
+  outline-color: black;
+  outline-width: 1px;
+  padding: 10px;
+  width: 120px;
+  height: 80px;
+}
+
+#sortDirectionLabel {
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+#sortDirectionLabel:hover #sortDirectionTooltip {
+  visibility: visible;
+  left: 25px;
+  top: 18px;
+}
+
+#sortDirectionTooltip {
+  visibility: hidden;
+  background-color: black;
+  color: white;
+  font-weight:normal;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  width: 73px;
+}
+
+#tableSpacing {
+  height: 12px;
+}
+
+#organizeFirstTable {
+  border-radius: 10px;
+  outline-style: solid;
+  outline-color: black;
+  outline-width: 1px;
+  padding: 10px;
+  width: 120px;
+  height: 100px;
+}
+
+#organizeFirstLabel {
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+#organizeFirstLabel:hover #organizeFirstTooltip {
+  visibility: visible;
+  left: 25px;
+  top: 18px;
+}
+
+#organizeFirstTooltip {
+  visibility: hidden;
+  background-color: black;
+  color: white;
+  font-weight: normal;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  width: 72px;
+}
+
+#sortButtonTable {
+  margin: auto;
+  padding-top: 7px;
+  padding-bottom: 0px;
+}
+
+#sortButton {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  width: 60px;
+}
+
+#sortButton:hover {
+  cursor: pointer;
+}
