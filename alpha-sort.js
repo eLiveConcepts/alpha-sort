@@ -17,7 +17,7 @@ function sortBookmarks() {
   }
 
   // loop through the organize first radio buttons to determine which one was selected
-  for (var organizeFirstRadio of organizeFirstRadioButtons) {
+  for (let organizeFirstRadio of organizeFirstRadioButtons) {
     if (organizeFirstRadio.checked) {
       organizeFirst = organizeFirstRadio.value;
     }
@@ -27,10 +27,10 @@ function sortBookmarks() {
   let chromeBoomarksPromise = chrome.bookmarks.getTree();
 
   // the above function retrieves a promise object, if retrieval is successful, the performSortBookmarks function will be called with an arrary of BookmarkTreeNode(s)
-  chromeBoomarksPromise.then((value) => {
-    performSortBookmarks(value,sortDirection,organizeFirst);
-  }).catch((err) => {
-    onFailure(err);
+  chromeBoomarksPromise.then((bookmarkTreeNodeArray) => {
+    performSortBookmarks(bookmarkTreeNodeArray,sortDirection,organizeFirst);
+  }).catch((errorResponse) => {
+    onFailure(errorResponse);
   });
 
   // close the popup window once the bookmarks have been sorted
