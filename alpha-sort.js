@@ -3,14 +3,14 @@ document.getElementById("sortButton").addEventListener("click", sortBookmarks);
 // The below function simply calls the sorting function & closes the popup window once sorting is complete. This function exists as am extensibility layer in case we want to do different things with the sort in the future, such as reversing it, excluding folders, etc.
 function sortBookmarks() {
 
-  var sortDirection = "ascending";
-  var organizeFirst = "folders";
+  let sortDirection = "ascending";
+  let organizeFirst = "folders";
 
-  var sortDirectonRadioButtons = document.getElementsByName("sortDirection");
-  var organizeFirstRadioButtons = document.getElementsByName("organizeFirst");
+  let sortDirectonRadioButtons = document.getElementsByName("sortDirection");
+  let organizeFirstRadioButtons = document.getElementsByName("organizeFirst");
 
   // loop through the sort direction radio buttons to determine which one was selected
-  for (var sortDirectionRadio of sortDirectonRadioButtons) {
+  for (let sortDirectionRadio of sortDirectonRadioButtons) {
     if (sortDirectionRadio.checked) {
       sortDirection = sortDirectionRadio.value;
     }
@@ -24,7 +24,7 @@ function sortBookmarks() {
   }
 
   // call the Chrome Bookmarks API to retrieve the user's bookmarks
-  var chromeBoomarksPromise = chrome.bookmarks.getTree();
+  let chromeBoomarksPromise = chrome.bookmarks.getTree();
 
   // the above function retrieves a promise object, if retrieval is successful, the performSortBookmarks function will be called with an arrary of BookmarkTreeNode(s)
   chromeBoomarksPromise.then((value) => {
@@ -50,17 +50,17 @@ function performSortBookmarks(bookmarksArray,sortDirection,organizeFirst) {
       performSortBookmarks(item.children,sortDirection,organizeFirst);
 
       // create a list of sorted bookmark titles
-      var arrayOfSortedChildrensTitles = sortChildrenTitles(item.children,sortDirection,organizeFirst);
+      let arrayOfSortedChildrensTitles = sortChildrenTitles(item.children,sortDirection,organizeFirst);
 
       // create an array of bookmarks based upon the above array of sorted titles
-      var arrayOfSortedChildren = sortChildrenByTitleArray(arrayOfSortedChildrensTitles, item.children);
+      let arrayOfSortedChildren = sortChildrenByTitleArray(arrayOfSortedChildrensTitles, item.children);
 
       // we can't modify the main bookmarks container, so as long as we're not dealing with that item, iterate
       if (item.id != 0) {
 
         // loop through the sorted array of bookmarks
-        for (var index = 0; index < arrayOfSortedChildren.length; index++) {
-          var destinationObject = {
+        for (let index = 0; index < arrayOfSortedChildren.length; index++) {
+          let destinationObject = {
             index: index,
             parentId: item.id
           }
@@ -76,13 +76,11 @@ function performSortBookmarks(bookmarksArray,sortDirection,organizeFirst) {
 
 // This function will take an array of bookmark children nodes and return a sorted array of their titles
 function sortChildrenTitles(childrenArray,sortDirection = "ascending",organizeFirst = "all") {
-  var sortedTitlesArray = [];
+  let sortedTitlesArray = [];
 
-  // if we're not sorting all bookmarks equally, create arrays to separate bookmarks from folders
-  if (organizeFirst != "all") {
-    var sortedFoldersArray = [];
-    var sortedFilesArray = [];
-  }
+  // if we're not sorting all bookmarks equally, we'll need these arrays to separate bookmarks from folders
+  let sortedFoldersArray = [];
+  let sortedFilesArray = [];
 
   // loop through the bookmark array to act on each node
   for (let childNode of childrenArray) {
@@ -142,7 +140,7 @@ function sortChildrenTitles(childrenArray,sortDirection = "ascending",organizeFi
 
 // this function will take an array of bookmark children nodes & return an array of those nodes sorted according to the sorted array of titles passed into the function
 function sortChildrenByTitleArray(sortedTitlesArray,childrenArray) {
-  var sortedChildrenArray = [];
+  let sortedChildrenArray = [];
 
   // ensure that both arrays passed into the function have the same number of items
   if (sortedTitlesArray.length == childrenArray.length) {
